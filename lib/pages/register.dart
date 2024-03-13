@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:chat_application/auth/auth_service.dart';
 import 'package:chat_application/components/custom_textfield.dart';
 import 'package:chat_application/extensions/widget_extension.dart';
-import 'package:chat_application/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,11 +10,40 @@ import 'package:google_fonts/google_fonts.dart';
 class Register extends StatelessWidget {
   Register({
     super.key,
+    required this.onTap,
   });
   bool isTextFieldVisible = false;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _pwController = TextEditingController();
   final TextEditingController _pwConfirmController = TextEditingController();
+
+  final void Function()? onTap;
+  // Register Method
+  void register(BuildContext context) {
+    //get Auth service
+    final auth = AuthService();
+
+    //if Passwords match creating the account
+
+    if (_pwController.text == _pwConfirmController.text) {
+      try {
+        auth.signUpWithEmailPassword(_emailController.text, _pwController.text);
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: ((context) => AlertDialog(
+                  title: Text(e.toString()),
+                )));
+      }
+      // If not match
+    } else {
+      showDialog(
+          context: context,
+          builder: ((context) => const AlertDialog(
+                title: Text("Passwords don't match!"),
+              )));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +108,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => register(context),
                 child: Text(
                   'Register',
                   style: GoogleFonts.domine(
@@ -98,13 +127,7 @@ class Register extends StatelessWidget {
                       children: [
                     WidgetSpan(
                         child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Login(),
-                            ));
-                      },
+                      onTap: onTap,
                       child: Text(' Sign In!',
                           style: GoogleFonts.domine(
                             color: Colors.grey.shade900,

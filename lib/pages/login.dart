@@ -1,14 +1,18 @@
 import 'dart:async';
 
+import 'package:chat_application/auth/auth_service.dart';
 import 'package:chat_application/components/custom_textfield.dart';
 import 'package:chat_application/extensions/widget_extension.dart';
-import 'package:chat_application/pages/register.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  final void Function()? onTap;
+  const Login({
+    super.key,
+    required this.onTap,
+  });
 
   @override
   _LoginState createState() => _LoginState();
@@ -22,11 +26,26 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       setState(() {
         isTextFieldVisible = true;
       });
     });
+  }
+
+  void login(BuildContext context) async {
+    final authService = AuthService();
+
+    try {
+      await authService.signInWithEmailPassword(
+          _emailController.text, _pwController.text);
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: ((context) => AlertDialog(
+                title: Text(e.toString()),
+              )));
+    }
   }
 
   @override
@@ -103,7 +122,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () => login(context),
                   child: Text(
                     'Login',
                     style: GoogleFonts.domine(
@@ -126,13 +145,7 @@ class _LoginState extends State<Login> {
                         children: [
                       WidgetSpan(
                           child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Register(),
-                              ));
-                        },
+                        onTap: widget.onTap,
                         child: Text(' Create an Account!',
                             style: GoogleFonts.domine(
                               color: Colors.grey.shade900,
