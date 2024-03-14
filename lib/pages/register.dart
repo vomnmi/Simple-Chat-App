@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:chat_application/auth/auth_service.dart';
 import 'package:chat_application/components/custom_textfield.dart';
 import 'package:chat_application/extensions/widget_extension.dart';
+import 'package:chat_application/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,7 +23,7 @@ class Register extends StatelessWidget {
     //get Auth service
     final auth = AuthService();
 
-    //if Passwords match creating the account
+    //if Passwords match, creating the account
 
     if (_pwController.text == _pwConfirmController.text) {
       try {
@@ -69,7 +69,7 @@ class Register extends StatelessWidget {
               ),
               Text(
                 'Welcome to Chat App',
-                style: GoogleFonts.domine(
+                style: GoogleFonts.roboto(
                   fontSize: 20,
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -95,7 +95,7 @@ class Register extends StatelessWidget {
                   )
                 ],
               ).paddingAll(15),
-              const Gap(15),
+              const Gap(14),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(
@@ -111,7 +111,7 @@ class Register extends StatelessWidget {
                 onPressed: () => register(context),
                 child: Text(
                   'Register',
-                  style: GoogleFonts.domine(
+                  style: GoogleFonts.roboto(
                     color: Colors.white,
                   ),
                 ).paddingVertical(15),
@@ -120,7 +120,7 @@ class Register extends StatelessWidget {
               RichText(
                   text: TextSpan(
                       text: 'Already Registered?',
-                      style: GoogleFonts.domine(
+                      style: GoogleFonts.roboto(
                         color: Colors.grey.shade400,
                         fontSize: 12,
                       ),
@@ -129,7 +129,7 @@ class Register extends StatelessWidget {
                         child: GestureDetector(
                       onTap: onTap,
                       child: Text(' Sign In!',
-                          style: GoogleFonts.domine(
+                          style: GoogleFonts.roboto(
                             color: Colors.grey.shade900,
                             fontSize: 12,
                           )),

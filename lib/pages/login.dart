@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:chat_application/auth/auth_service.dart';
 import 'package:chat_application/components/custom_textfield.dart';
 import 'package:chat_application/extensions/widget_extension.dart';
+import 'package:chat_application/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -80,7 +80,7 @@ class _LoginState extends State<Login> {
                   height: isTextFieldVisible ? 0 : 70,
                   child: Text(
                     'Welcome to Chat App',
-                    style: GoogleFonts.domine(
+                    style: GoogleFonts.roboto(
                       fontSize: 20,
                       color: Theme.of(context).colorScheme.primary,
                     ),
@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
                   onPressed: () => login(context),
                   child: Text(
                     'Login',
-                    style: GoogleFonts.domine(
+                    style: GoogleFonts.roboto(
                       color: Colors.white,
                     ),
                   ).paddingVertical(15),
@@ -138,7 +138,7 @@ class _LoginState extends State<Login> {
                 child: RichText(
                     text: TextSpan(
                         text: 'Not Registered Yet?',
-                        style: GoogleFonts.domine(
+                        style: GoogleFonts.roboto(
                           color: Colors.grey.shade400,
                           fontSize: 12,
                         ),
@@ -147,7 +147,7 @@ class _LoginState extends State<Login> {
                           child: GestureDetector(
                         onTap: widget.onTap,
                         child: Text(' Create an Account!',
-                            style: GoogleFonts.domine(
+                            style: GoogleFonts.roboto(
                               color: Colors.grey.shade900,
                               fontSize: 12,
                             )),
