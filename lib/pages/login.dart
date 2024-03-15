@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:chat_application/components/custom_textfield.dart';
 import 'package:chat_application/extensions/widget_extension.dart';
+import 'package:chat_application/generated/locale_keys.g.dart';
 import 'package:chat_application/services/auth/auth_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -79,7 +81,7 @@ class _LoginState extends State<Login> {
                   curve: Curves.easeInOut,
                   height: isTextFieldVisible ? 0 : 70,
                   child: Text(
-                    'Welcome to Chat App',
+                    LocaleKeys.Welcome_to_Chat_App.tr(),
                     style: GoogleFonts.roboto(
                       fontSize: 20,
                       color: Theme.of(context).colorScheme.primary,
@@ -93,13 +95,13 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     CustomTextField(
-                      hintText: 'Email',
+                      hintText: LocaleKeys.Email.tr(),
                       obscure: false,
                       controller: _emailController,
                     ),
                     const Gap(10),
                     CustomTextField(
-                      hintText: 'Password',
+                      hintText: LocaleKeys.Password.tr(),
                       obscure: true,
                       controller: _pwController,
                     ),
@@ -124,7 +126,7 @@ class _LoginState extends State<Login> {
                   ),
                   onPressed: () => login(context),
                   child: Text(
-                    'Login',
+                    LocaleKeys.Login.tr(),
                     style: GoogleFonts.roboto(
                       color: Colors.white,
                     ),
@@ -137,7 +139,7 @@ class _LoginState extends State<Login> {
                 duration: const Duration(seconds: 1),
                 child: RichText(
                     text: TextSpan(
-                        text: 'Not Registered Yet?',
+                        text: LocaleKeys.Not_Registered_Yet.tr(),
                         style: GoogleFonts.roboto(
                           color: Colors.grey.shade400,
                           fontSize: 12,
@@ -146,7 +148,7 @@ class _LoginState extends State<Login> {
                       WidgetSpan(
                           child: GestureDetector(
                         onTap: widget.onTap,
-                        child: Text(' Create an Account!',
+                        child: Text(" ${LocaleKeys.Create_an_Account.tr()}!",
                             style: GoogleFonts.roboto(
                               color: Colors.grey.shade900,
                               fontSize: 12,

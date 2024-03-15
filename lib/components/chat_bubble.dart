@@ -13,14 +13,14 @@ class ChatBubble extends StatelessWidget {
       decoration: BoxDecoration(
         color: isCurrentUser
             ? Theme.of(context).colorScheme.primary
-            : Colors.grey.shade500,
+            : const Color(0xff555e65),
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.all(15),
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Text(
         message,
-        style: GoogleFonts.domine(fontSize: 14, color: Colors.white),
+        style: GoogleFonts.roboto(fontSize: 14, color: Colors.white),
       ),
     );
   }

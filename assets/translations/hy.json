@@ -1,0 +1,24 @@
+{
+    "Welcome_to_Chat_App": "Բարի գալուստ Chat App",
+    "Email": "Էլ հասցե",
+    "Password": "Գաղտնաբառ",
+    "Login": "Մուտք",
+    "Not_Registered_Yet": "Դեռ գրանցված չեք",
+    "Create_an_Account": "Ստեղծեք հաշիվ",
+    "Passwords_dont_match": "Գաղտնաբառերը չեն համընկնում",
+    "Confirm_Password": "Հաստատեք Գաղտնաբառը",
+    "Register": "Գրանցվել",
+    "Already_Registered": "Արդեն գրանցված եք",
+    "Sign_In": "Մուտք գործել",
+    "Inbox": "Նամակներ",
+    "Error": "Սխալմունք",
+    "Loading": "Ներբեռնում",
+    "H_O_M_E": "Գ Լ Խ Ա Վ Ո Ր",
+    "S_E_T_T_I_N_G_S": "Կ Ա Ր Գ Ա Վ Ո Ր ՈՒ Մ Ն Ե Ր",
+    "L_O_G__O_U_T": "Դ ՈՒ Ր Ս  Գ Ա Լ",
+    "Dark_mode": "Dark Mode",
+    "Settings": "Կարգավորումներ",
+    "Type_a_message": "Տպել նամակ",
+    "Change_Language": "Փոխել լեզուն"
+
+}

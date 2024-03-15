@@ -1,8 +1,10 @@
 import 'package:chat_application/components/chat_bubble.dart';
 import 'package:chat_application/components/custom_textfield.dart';
+import 'package:chat_application/generated/locale_keys.g.dart';
 import 'package:chat_application/services/auth/auth_service.dart';
 import 'package:chat_application/services/chat/chat_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -28,10 +30,11 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   void initState() {
-    super.initState();
     myFocusNode.addListener(() {
       if (myFocusNode.hasFocus) {
         Future.delayed(const Duration(milliseconds: 500), () => scrollDown());
+      } else {
+        Future.delayed(const Duration(milliseconds: 1000), () => scrollDown());
       }
     });
 
@@ -39,6 +42,7 @@ class _ChatPageState extends State<ChatPage> {
       const Duration(milliseconds: 100),
       () => scrollDown(),
     );
+    super.initState();
   }
 
   //Scroll controller
@@ -47,13 +51,6 @@ class _ChatPageState extends State<ChatPage> {
   void scrollDown() {
     scrollController.animateTo(scrollController.position.maxScrollExtent,
         duration: const Duration(seconds: 1), curve: Curves.fastOutSlowIn);
-  }
-
-  @override
-  void dispose() {
-    myFocusNode.dispose();
-    _messageController.dispose();
-    super.dispose();
   }
 
   // sending message
@@ -65,6 +62,13 @@ class _ChatPageState extends State<ChatPage> {
       _messageController.clear();
       scrollDown();
     }
+  }
+
+  @override
+  void dispose() {
+    myFocusNode.dispose();
+    _messageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -120,8 +124,8 @@ class _ChatPageState extends State<ChatPage> {
 
     bool isCurrentUser = data['senderID'] == _authService.getCurrentUser()!.uid;
 
-    var alignment =
-        isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
+    // var alignment =
+    //     isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
 
     return Container(
       child: Column(
@@ -143,7 +147,7 @@ class _ChatPageState extends State<ChatPage> {
               child: CustomTextField(
             focusNode: myFocusNode,
             controller: _messageController,
-            hintText: "Type a message",
+            hintText: LocaleKeys.Type_a_message.tr(),
             obscure: false,
           )),
           const Gap(5),

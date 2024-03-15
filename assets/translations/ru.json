@@ -1,0 +1,24 @@
+{
+    "Welcome_to_Chat_App": "Добро пожаловать в Chat App",
+    "Email": "Электронная Почта",
+    "Password": "Пароль",
+    "Login": "Войти",
+    "Not_Registered_Yet": "Еще не зарегистрированы",
+    "Create_an_Account": "Создайте аккаунт",
+    "Passwords_dont_match": "Пароли не совпадают",
+    "Confirm_Password": "Подтвердить пароль",
+    "Register": "Зарегистрироваться",
+    "Already_Registered": "Уже Зарегистрирован",
+    "Sign_In": "Войти",
+    "Inbox": "Входящие",
+    "Error": "Ошибка",
+    "Loading": "Загрузка",
+    "H_O_M_E": "Г Л А В Н А Я",
+    "S_E_T_T_I_N_G_S": "Н А С Т Р О Й К И",
+    "L_O_G__O_U_T": "В Ы Х О Д",
+    "Dark_mode": "Темный режим",
+    "Settings": "Настройки",
+    "Type_a_message": "Печатайте сообщение",
+    "Change_Language": "Сменить язык"
+
+}

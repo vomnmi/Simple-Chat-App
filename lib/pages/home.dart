@@ -1,8 +1,10 @@
 import 'package:chat_application/components/custom_drawer.dart';
 import 'package:chat_application/components/user_tile.dart';
+import 'package:chat_application/generated/locale_keys.g.dart';
 import 'package:chat_application/pages/chat.dart';
 import 'package:chat_application/services/auth/auth_service.dart';
 import 'package:chat_application/services/chat/chat_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -19,8 +21,8 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        foregroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text('Inbox'),
+        foregroundColor: Theme.of(context).colorScheme.secondary,
+        title: Text(LocaleKeys.Inbox.tr()),
       ),
       drawer: const CustomDrawer(),
       body: _buildUserList(),
@@ -33,11 +35,11 @@ class Home extends StatelessWidget {
         builder: (context, snapshot) {
           //Error
           if (snapshot.hasError) {
-            return const Text('Error');
+            return Text(LocaleKeys.Error.tr());
           }
           //Loading
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text('Loading...');
+            return Text(LocaleKeys.Loading.tr());
           }
 
           //returning ListView

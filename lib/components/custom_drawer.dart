@@ -1,6 +1,8 @@
 import 'package:chat_application/extensions/widget_extension.dart';
+import 'package:chat_application/generated/locale_keys.g.dart';
 import 'package:chat_application/pages/settings.dart';
 import 'package:chat_application/services/auth/auth_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -31,7 +33,7 @@ class CustomDrawer extends StatelessWidget {
               )),
               ListTile(
                 title: Text(
-                  'H O M E',
+                  LocaleKeys.H_O_M_E.tr(),
                   style: GoogleFonts.roboto(
                       color: Theme.of(context).colorScheme.secondary),
                 ),
@@ -43,7 +45,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  'S E T T I N G S',
+                  LocaleKeys.S_E_T_T_I_N_G_S.tr(),
                   style: GoogleFonts.roboto(
                       color: Theme.of(context).colorScheme.secondary),
                 ),
@@ -62,7 +64,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              'L O G  O U T',
+              LocaleKeys.L_O_G__O_U_T.tr(),
               style: GoogleFonts.roboto(
                   color: Theme.of(context).colorScheme.secondary),
             ),
